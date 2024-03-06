@@ -1,4 +1,5 @@
 const { Client, LocalAuth } = require("whatsapp-web.js")
+const { consumirMensagens } = require('./ConsumerRabbitMQ.js')
 const qrcode = require("qrcode-terminal")
 
 const whatsappclient = new Client({
@@ -6,7 +7,9 @@ const whatsappclient = new Client({
 })
 
 whatsappclient.on("qr", (qr) => qrcode.generate(qr, { small: true }))
-whatsappclient.on("ready", () => console.log("Client is ready!"))
+whatsappclient.on("ready", () => {
+    consumirMensagens()
+})
 
 whatsappclient.on("message" , async (msg) => {
     try {

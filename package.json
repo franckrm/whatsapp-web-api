@@ -1,7 +1,7 @@
 {
-  "name": "whatsapp-interceptor",
+  "name": "whatsapp-web-api",
   "version": "1.0.0",
-  "description": "WhatsApp Interceptor",
+  "description": "API para whatsapp web",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon  src/index.js",
